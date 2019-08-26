@@ -1,3 +1,4 @@
+# Simple utility script that logs data sent over USB
 import serial
 
 test_length = 10
