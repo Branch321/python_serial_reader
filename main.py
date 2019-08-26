@@ -1,9 +1,14 @@
 # Simple utility script that logs data sent over USB
 import serial
 
+# Settings
 test_length = 10
-ser = serial.Serial('COM5',115200)
+serial_com_port = 'COM5'
+baud_rate = 115200
+
+ser = serial.Serial(serial_com_port,baud_rate)
 print(ser.name)
+
 for feet_range in range(1,16):
     rssi_data = []
     ser.flushInput()
@@ -16,5 +21,4 @@ for feet_range in range(1,16):
             print(rssi_data[i])
             file.write(rssi_data[i] + '\n')
     input("Hit Enter to Start Next Test...")
-    file.close()
 print("DONE")
